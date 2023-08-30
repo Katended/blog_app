@@ -64,7 +64,6 @@ describe '#likes_counter' do
   end
 end
 
-
 describe '#update_post_counter' do
   it 'increments the user post_counter attribute by 1' do
     author = User.create!(name: 'John Doe', post_counter: 1)
