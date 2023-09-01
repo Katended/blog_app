@@ -1,1 +1,17 @@
-<h1>Here is the given user</h1>
+<section class="single_users_container">
+  <%= render partial: "shared/user", locals: {user: @user || "No users found"} %>
+
+  <div class="user_bio">
+    <h3>Bio</h3>
+    <p><%= @user.bio %></p>
+  </div>
+
+  <% @recent_posts.each do |post| %>
+    <%= render partial: 'shared/post', locals: { post: post, show_full_post: false } %>
+  <% end %>
+
+  <div class="btn_container">
+    <button type="button" class="btn"><%= link_to "See all Posts", user_posts_path(@user) %></button> 
+    <button type="button" class="create_post_btn btn"><%= link_to "Create Post", new_user_post_path(@user) %></button>
+  </div>
+</section>
