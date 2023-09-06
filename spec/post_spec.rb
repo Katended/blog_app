@@ -71,7 +71,7 @@ RSpec.describe Post, type: :model do
   end
 
   describe '#update_post_counter' do
-    it 'increments the user posts_counter attribute by 1' do
+    it 'increments the user post_counter attribute by 1' do
       author = User.create!(name: 'John Doe', post_counter: 1)
       post = Post.new(title: 'Title', comments_counter: 0, likes_counter: 0, author:) # Set the author attribute
 

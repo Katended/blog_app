@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @posts = @user.posts.order(created_at: :asc)
+    @posts = @user.posts.includes(:comments).order(created_at: :asc)
   end
 
   def show
@@ -13,6 +13,11 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+
+  def find_user
+    @user = User.includes(:posts, posts: [:comments, { comments: [:author] }]).find(params[:user_id])
+  end
+
   def create
     @post = Post.new(post_params)
     @post.author = current_user
@@ -22,6 +27,10 @@ class PostsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def find_user
+    
   end
 
   private
