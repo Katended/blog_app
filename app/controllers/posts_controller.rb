@@ -13,10 +13,6 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def find_user
-    @user = User.includes(:posts, posts: [:comments, { comments: [:author] }]).find(params[:user_id])
-  end
-
   def create
     @post = Post.new(post_params)
     @post.author = current_user
