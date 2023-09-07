@@ -13,7 +13,6 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-
   def find_user
     @user = User.includes(:posts, posts: [:comments, { comments: [:author] }]).find(params[:user_id])
   end
@@ -27,10 +26,6 @@ class PostsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def find_user
-    
   end
 
   private
