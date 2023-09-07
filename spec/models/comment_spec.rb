@@ -5,9 +5,7 @@ RSpec.describe Comment, type: :model do
     it 'updates the comments_counter attribute' do
       user = User.create(name: 'Sam')
       post = Post.create(title: 'Hello', author: user)
-      comment = Comment.create(author: user, post:)
-
-      comment.update_comments_counter
+      Comment.create(author: user, post:)
 
       expect(post.reload.comments_counter).to eq(1)
     end

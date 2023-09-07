@@ -6,9 +6,9 @@ RSpec.describe 'Post Show', type: :system do
                         post_counter: 6)
     @post = Post.create(title: 'The Dark Night', text: 'This is my first post', comments_counter: 15,
                         likes_counter: 18, author: @user)
-    @comment1 = Comment.create(author: @user, post: @post, text: 'This is my first comment')
-    @comment2 = Comment.create(author: @user, post: @post, text: 'This is my second comment')
-    @comment3 = Comment.create(author: @user, post: @post, text: 'This is my third comment')
+    @comment1 = Comment.create!(author: @user, post: @post, text: 'This is my first comment')
+    @comment2 = Comment.create!(author: @user, post: @post, text: 'This is my second comment')
+    @comment3 = Comment.create!(author: @user, post: @post, text: 'This is my third comment')
     @like = Like.create(author: @user, post: @post)
   end
 
