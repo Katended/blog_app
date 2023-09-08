@@ -1,20 +1,20 @@
 require 'rails_helper'
 
-RSpec.describe 'Post Index', type: :system do
-  describe 'Post index page' do
-    before :each do
-      @user = User.create(name: 'Batman', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Superhero',
-                          post_counter: 6)
-      @post = Post.create(title: 'The Dark Night', text: 'This is my first post', comments_counter: 15,
-                          likes_counter: 18, author: @user)
-      @comment1 = Comment.create(author: @user, post: @post, text: 'This is my first comment')
-      @comment2 = Comment.create(author: @user, post: @post, text: 'This is my second comment')
-      @comment3 = Comment.create(author: @user, post: @post, text: 'This is my third comment')
-      @like = Like.create(author: @user, post: @post)
+RSpec.describe 'Post Index', type: :feature do
+  before :each do
+    @user = User.create(name: 'Batman', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Superhero',
+                        post_counter: 6)
+    @post = Post.create(title: 'The Dark Night', text: 'This is my first post', comments_counter: 15,
+                        likes_counter: 18, author: @user)
+    @comment1 = Comment.create(author: @user, post: @post, text: 'This is my first comment')
+    @comment2 = Comment.create(author: @user, post: @post, text: 'This is my second comment')
+    @comment3 = Comment.create(author: @user, post: @post, text: 'This is my third comment')
+    @like = Like.create(author: @user, post: @post)
 
-      visit user_posts_path(user_id: @user.id)
-    end
+    visit user_posts_path(user_id: @user.id)
+  end
 
+  describe 'Post index page display' do
     it "shows user's profile picture" do
       expect(page).to have_css("img[src*='https://unsplash.com/photos/F_-0BxGuVvo']")
     end
@@ -52,6 +52,18 @@ RSpec.describe 'Post Index', type: :system do
     end
 
     it 'when user clicks on a post, it redirects to that posts show page' do
+      click_link 'Post #'
+      expect(page).to have_current_path(user_post_path(@user, @post))
+    end
+  end
+
+  describe 'Post index page links' do
+    it "when user clicks on user's name is redirected to that user's show page" do
+      click_link 'Batman'
+      expect(page).to have_current_path(user_path(@user.id))
+    end
+
+    it 'when user clicks on post is redirected to that posts show page' do
       click_link 'Post #'
       expect(page).to have_current_path(user_post_path(@user, @post))
     end
