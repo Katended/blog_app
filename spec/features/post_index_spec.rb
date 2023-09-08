@@ -20,7 +20,7 @@ RSpec.describe 'Post Index', type: :feature do
     end
 
     it 'shows the users username' do
-      expect(page).to have_content('Batman')
+      expect(page).to have_content(@post.author.name)
     end
 
     it 'shows number of posts by user' do
@@ -32,11 +32,11 @@ RSpec.describe 'Post Index', type: :feature do
     end
 
     it 'shows some of the posts body' do
-      expect(page).to have_content 'This is my first post'
+      expect(page).to have_content(@post.text)
     end
 
     it 'shows the first comment on a post' do
-      expect(page).to have_content 'This is my first comment'
+      expect(page).to have_content(@comment1.text)
     end
 
     it 'shows how many comments a post has.' do

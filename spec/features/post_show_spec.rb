@@ -16,15 +16,15 @@ RSpec.describe 'Post Show', type: :feature do
 
   describe 'Post show page display' do
     it 'displays the post title' do
-      expect(page).to have_content('The Dark Night')
+      expect(page).to have_content(@post.title)
     end
 
     it 'displays the post author' do
-      expect(page).to have_content('Batman')
+      expect(page).to have_content(@post.author.name)
     end
 
     it 'displays the post text' do
-      expect(page).to have_content('This is my first post')
+      expect(page).to have_content(@post.text)
     end
 
     it 'displays the comments counter' do
@@ -36,13 +36,13 @@ RSpec.describe 'Post Show', type: :feature do
     end
 
     it 'displays the user name of each commentor' do
-      expect(page).to have_content('Batman')
+      expect(page).to have_content(@post.author.name)
     end
 
     it 'displays the comment text' do
-      expect(page).to have_content('This is my first comment')
-      expect(page).to have_content('This is my second comment')
-      expect(page).to have_content('This is my third comment')
+      expect(page).to have_content(@comment1.text)
+      expect(page).to have_content(@comment2.text)
+      expect(page).to have_content(@comment3.text)
     end
 
     it 'displays the add comment button' do
