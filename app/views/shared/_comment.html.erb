@@ -1,4 +1,5 @@
 <div class="comment_details_container">
   <p class="comment_date"><%= comment.author.name %>: </p>
   <p class="comment_text"><%= comment.text %></p>
+  <%= button_to "Delete comment", user_post_comment_path(user_id: comment.author.id, post_id: comment.post, id: comment.id), method: :delete, class: "btn delete-btn" if can? :destroy, comment %>
 </div>
