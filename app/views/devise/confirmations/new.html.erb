@@ -7,7 +7,7 @@
 
 
   <div class="field">
-
+    <%= link_to 'Confirm your email', confirmation_url(resource, confirmation_token: resource.confirmation_token) %>
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
   </div>
