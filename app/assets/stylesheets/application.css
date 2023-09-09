@@ -14,3 +14,32 @@ a {
 a:active {
   color: inherit;
 }
+
+/* Style the form container */
+.login-container {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style the form fields */
+.login-container input[type="email"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #0c0c0c;
+  background-color: white;
+}
+
+/* Style the submit button */
+.login-container input[type="submit"] {
+  display: block;
+  background-color: white;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #0c0c0c;
+  cursor: pointer;
+  box-shadow: 2px 5px #0a0a0a;
+  margin-top: 50px;
+}
