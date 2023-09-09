@@ -19,7 +19,7 @@ a:active {
 .login-container {
   width: 50%;
   margin: 0 auto;
-  padding: 20px; 
+  padding: 20px;
 }
 
 /* Style the form fields */
@@ -39,7 +39,7 @@ a:active {
   width: 100%;
   padding: 10px;
   border: 1px solid #0c0c0c;
-  cursor: pointer;  
+  cursor: pointer; 
   box-shadow: 2px 5px #0a0a0a;
-  margin-top:50px;
+  margin-top: 50px;
 }
