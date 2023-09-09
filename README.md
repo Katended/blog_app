@@ -97,6 +97,11 @@ To run tests, run the following command:
 
 - GitHub: [@Katended](https://github.com/Katended)
 - LinkedIn: [@katendedavid](https://www.linkedin.com/in/katendedavid/)
+
+👤 **Mohamed Sabry**
+
+- GitHub: [@mohamedSabry0](https://github.com/mohamedSabry0)
+
 <!-- - LinkedIn: [username](link) -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
